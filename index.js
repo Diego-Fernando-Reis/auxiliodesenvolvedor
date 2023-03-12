@@ -1,6 +1,4 @@
 const { ok } = require('assert');
-const fs = require('fs')
-const path = require('path')
 let armazenarPropriedades = [];
 
 const readline = require('readline');
@@ -16,7 +14,6 @@ rl.on('line', (age) => {
     let temp = 'a';
     for(let i=1; i<armazenarPropriedades.length; i++){
       if(armazenarPropriedades[i] < armazenarPropriedades[i-1]){
-        console.log(armazenarPropriedades[i])
         temp = armazenarPropriedades[i-1];
         armazenarPropriedades[i-1] = armazenarPropriedades[i];
         armazenarPropriedades[i] = temp;
@@ -24,10 +21,10 @@ rl.on('line', (age) => {
         armazenarPropriedades[i] = armazenarPropriedades[i];
       }
     }
-    console.log(armazenarPropriedades);
+    console.log(armazenarPropriedades.join(''))
     rl.close;
   }else{
-    armazenarPropriedades += `${age}`; 
+    armazenarPropriedades.push(`${age}\n`); 
     rl.setPrompt('Insira a propriedade css: ');
     rl.prompt()
   }
